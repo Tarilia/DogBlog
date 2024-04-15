@@ -6,5 +6,5 @@ from dogblog.views import IndexPageView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexPageView.as_view(), name='index'),
-    # path('users/', include('dogblog.users.urls')),
+    path('users/', include('dogblog.users.urls')),
 ]
