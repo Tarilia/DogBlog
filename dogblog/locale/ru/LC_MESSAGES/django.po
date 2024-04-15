@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-14 13:59+0300\n"
+"POT-Creation-Date: 2024-04-15 14:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: templates/base.html:12 templates/base.html:25
 msgid "Dog Blog"
 msgstr "Собачий Блог"
@@ -31,14 +32,42 @@ msgstr "Добавить статью"
 msgid "Shop"
 msgstr "Магазин"
 
-#: templates/base.html:31
+#: templates/base.html:33
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:34
+#: templates/base.html:37 users/templates/users/login.html:11
 msgid "Login"
 msgstr "Вход"
 
-#: templates/base.html:35
+#: templates/base.html:38 users/templates/users/create.html:8
 msgid "Registration"
 msgstr "Регистрация"
+
+#: users/models.py:7
+msgid "Photo"
+msgstr "Фщтография"
+
+#: users/models.py:8
+msgid "Date of Birth"
+msgstr "Дата рождения"
+
+#: users/templates/users/create.html:13
+msgid "SignUp"
+msgstr "Зарегистрироваться"
+
+#: users/templates/users/login.html:16
+msgid "Log in"
+msgstr "Войти"
+
+#: users/views.py:15
+msgid "User is successfully registered"
+msgstr "Пользователь успешно зарегистрирован"
+
+#: users/views.py:24
+msgid "You are logged in"
+msgstr "Вы вошли в систему"
+
+#: users/views.py:32
+msgid "You are logged out"
+msgstr "Вы вышли из системы"

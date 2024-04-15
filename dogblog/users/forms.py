@@ -14,3 +14,8 @@ class LoginUserForm(AuthenticationForm):
     class Meta:
         model = get_user_model()
         fields = ['username', 'password']
+
+
+class UpdateUserForm(CreateUserForm):
+    def clean_username(self):
+        return self.cleaned_data.get("username")
