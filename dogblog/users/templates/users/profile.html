@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+<div class="container wrapper flex-grow-1">
+  <div class="mt-4">
+     {% bootstrap_messages %}
+  </div>
+  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+  <h1 class="my-4">{% translate 'Profile' %}</h1>
+  <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    {% if user.photo %}
+    <p><img src="{{ user.photo.url }}">
+    {% else %}
+    <p><img src="{{ default_image }}">
+    {% endif %}
+    {% bootstrap_form form %}
+
+    {% translate 'Change' as button_name %}
+    {% bootstrap_button button_type="submit" button_class="btn btn-secondary" content=button_name %}
+    <a class="btn mx-2 btn-secondary" href="{% url 'delete_users' pk=user.pk %}">{% translate 'Delete' %}</a>
+  </form>
+  </div>
+</div>
+{% endblock %}

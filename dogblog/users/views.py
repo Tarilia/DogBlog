@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from dogblog.users.forms import (CreateUserForm, LoginUserForm,
-                                 UpdateUserForm)
+                                 ProfilUserForm)
 from dogblog.utils import AuthRequiredMixin
 
 
@@ -28,13 +28,16 @@ class LoginUserView(LoginView):
         return super().form_valid(form)
 
 
-class UpdateUserView(AuthRequiredMixin, SuccessMessageMixin,
-                     UpdateView):
-    template_name = "users/update.html"
+class ProfileUserView(AuthRequiredMixin, SuccessMessageMixin,
+                      UpdateView):
+    template_name = 'users/profile.html'
     model = get_user_model()
-    form_class = UpdateUserForm
-    success_url = reverse_lazy("index")
+    form_class = ProfilUserForm
+    success_url = reverse_lazy("profile")
     success_message = _("User changed successfully")
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class DeleteUserView(AuthRequiredMixin, SuccessMessageMixin,

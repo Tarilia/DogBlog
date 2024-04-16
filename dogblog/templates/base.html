@@ -26,14 +26,14 @@
           <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="#">{% translate 'Add article' %}</a>
           <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="#">{% translate 'Shop' %}</a>
           {% if user.is_authenticated %}
-          <div class="pull-right">
-          <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="#">{{ 'user.username' }}</a>
+          <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="{% url 'profile' %}">{% translate 'Profile' %}</a>
           <form action="{% url 'logout' %}" method="post" class="form">
             {% csrf_token %}
             <button type="submit" class="btn btn-secondary">{% translate 'Logout' %}</button>
           </form>
           {% endif %}
           {% if not user.is_authenticated %}
+          <div class="pull-right">
           <a class="btn mx-2 btn-secondary" href="{% url 'login' %}">{% translate 'Login' %}</a>
           <a class="btn mx-2 btn-secondary" href="{% url 'create_users' %}">{% translate 'Registration' %}</a>
           {% endif %}
