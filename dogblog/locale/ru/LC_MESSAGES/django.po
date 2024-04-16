@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-15 14:36+0300\n"
+"POT-Creation-Date: 2024-04-16 14:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,11 @@ msgstr "Добавить статью"
 msgid "Shop"
 msgstr "Магазин"
 
-#: templates/base.html:33
+#: templates/base.html:29 users/templates/users/profile.html:11
+msgid "Profile"
+msgstr "Профиль"
+
+#: templates/base.html:32
 msgid "Logout"
 msgstr "Выход"
 
@@ -46,7 +50,7 @@ msgstr "Регистрация"
 
 #: users/models.py:7
 msgid "Photo"
-msgstr "Фщтография"
+msgstr "Фотография"
 
 #: users/models.py:8
 msgid "Date of Birth"
@@ -56,9 +60,29 @@ msgstr "Дата рождения"
 msgid "SignUp"
 msgstr "Зарегистрироваться"
 
+#: users/templates/users/delete.html:8
+msgid "Delete user"
+msgstr "Удаление пользователя"
+
+#: users/templates/users/delete.html:9
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: users/templates/users/delete.html:14
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
 #: users/templates/users/login.html:16
 msgid "Log in"
 msgstr "Войти"
+
+#: users/templates/users/profile.html:21
+msgid "Change"
+msgstr "Изменить"
+
+#: users/templates/users/profile.html:23
+msgid "Delete"
+msgstr "Удалить"
 
 #: users/views.py:18
 msgid "User is successfully registered"
@@ -72,11 +96,11 @@ msgstr "Вы вошли в систему"
 msgid "User changed successfully"
 msgstr "Пользователь успешно изменен"
 
-#: users/views.py:45
+#: users/views.py:48
 msgid "User deleted successfully."
 msgstr "Пользователь успешно удален"
 
-#: users/views.py:52
+#: users/views.py:55
 msgid "You are logged out"
 msgstr "Вы вышли из системы"
 
