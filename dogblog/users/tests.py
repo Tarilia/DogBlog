@@ -40,3 +40,59 @@ class TestCreateUser(TestCase):
         self.assertIsInstance(response.context['form'], CreateUserForm)
         self.assertIs(response.resolver_match.func.view_class,
                       CreateUserView)
+
+
+class TestProfileUser(TestCase):
+    fixtures = ['users.json']
+
+    def setUp(self):
+        self.user = get_user_model().objects.get(username='User1_test')
+        self.new_user = {'username': 'User_new_test',
+                         'first_name': 'User_new',
+                         'last_name': 'User_new_last'}
+        self.url = reverse('profile')
+
+    def test_profile_user(self):
+        self.client.force_login(self.user)
+        response = self.client.get(self.url)
+
+        self.assertEquals(response.status_code, 200)
+        self.assertEquals(self.url, f'/users/profile/')
+        self.assertIsInstance(response.context['form'], ProfilUserForm)
+
+        self.client.force_login(self.user)
+        response = self.client.post(self.url, self.new_user)
+
+        self.assertEquals(self.url, f'/users/profile/')
+        self.assertRedirects(response, reverse('profile'), 302)
+        self.assertEqual(response['Location'], '/users/profile/')
+        self.assertIs(response.resolver_match.func.view_class,
+                      ProfileUserView)
+
+
+class TestDeleteUser(TestCase):
+    fixtures = ['users.json']
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_delete_users(self):
+        del_user = \
+            get_user_model().objects.get(username='User2_test')
+        response = self.client.get(reverse('delete_users',
+                                           kwargs={'pk': del_user.pk}))
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIs(response.resolver_match.func.view_class,
+                      DeleteUserView)
+        self.assertEqual(response['Location'], '/users/login/')
+
+        self.client.force_login(del_user)
+        response = self.client.post(reverse('delete_users',
+                                            kwargs={'pk': del_user.pk}))
+        self.assertEqual(response.status_code, 302)
+        self.assertIs(response.resolver_match.func.view_class,
+                      DeleteUserView)
+        self.assertEqual(response['Location'], '/')
+        self.assertFalse(get_user_model().objects.filter
+                         (username='User2_test').exists())
