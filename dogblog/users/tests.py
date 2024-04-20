@@ -57,13 +57,13 @@ class TestProfileUser(TestCase):
         response = self.client.get(self.url)
 
         self.assertEquals(response.status_code, 200)
-        self.assertEquals(self.url, f'/users/profile/')
+        self.assertEquals(self.url, '/users/profile/')
         self.assertIsInstance(response.context['form'], ProfilUserForm)
 
         self.client.force_login(self.user)
         response = self.client.post(self.url, self.new_user)
 
-        self.assertEquals(self.url, f'/users/profile/')
+        self.assertEquals(self.url, '/users/profile/')
         self.assertRedirects(response, reverse('profile'), 302)
         self.assertEqual(response['Location'], '/users/profile/')
         self.assertIs(response.resolver_match.func.view_class,
