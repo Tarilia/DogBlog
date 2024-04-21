@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'dogblog',
     'dogblog.users',
+    'dogblog.article',
 ]
 
 MIDDLEWARE = [
