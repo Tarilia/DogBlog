@@ -12,3 +12,4 @@ coverage.xml
 .env
 *.sqlite3
 **/staticfiles
+media
