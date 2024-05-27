@@ -14,7 +14,7 @@ class TestStatusAndHtml(TestCase):
         self.user = get_user_model().objects.get(username='User_test')
 
     def test_status_code(self):
-        response = self.client.get(reverse("index"))
+        response = self.client.get(reverse("index_articles"))
         self.assertEqual(response.status_code, 200)
 
         response = self.client.get(reverse("login"))
