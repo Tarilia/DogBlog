@@ -13,7 +13,7 @@ class Article(models.Model):
                                        verbose_name=_("Time of creation"))
     time_update = models.DateTimeField(auto_now=True,
                                        verbose_name=_("Change time"))
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=True, verbose_name=_("is_published"))
 
     def __str__(self):
         return self.title

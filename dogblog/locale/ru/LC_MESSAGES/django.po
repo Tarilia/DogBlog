@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-16 14:10+0300\n"
+"POT-Creation-Date: 2024-05-27 15:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,88 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: article/models.py:7
+msgid "Slug"
+msgstr "Слаг"
+
+#: article/models.py:8
+msgid "Heading"
+msgstr "Заголовок"
+
+#: article/models.py:9
+msgid "Article text"
+msgstr "Текст статьи"
+
+#: article/models.py:11 users/models.py:8
+msgid "Photo"
+msgstr "Фотография"
+
+#: article/models.py:13
+msgid "Time of creation"
+msgstr "Дата создания"
+
+#: article/models.py:15
+msgid "Change time"
+msgstr "Дата изменения"
+
+#: article/models.py:16
+msgid "is_published"
+msgstr "опубликовано"
+
+#: article/models.py:22 article/models.py:23
+msgid "Dog breeds"
+msgstr "Породы собак"
+
+#: article/templates/article/create.html:8
+msgid "Create article"
+msgstr "Добавить статью"
+
+#: article/templates/article/create.html:13
+msgid "Create"
+msgstr "Создать"
+
+#: article/templates/article/delete.html:8
+msgid "Delete article"
+msgstr "Удалить статью"
+
+#: article/templates/article/delete.html:9 users/templates/users/delete.html:9
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: article/templates/article/delete.html:14
+#: users/templates/users/delete.html:14
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: article/templates/article/detail.html:19
+msgid "Edit"
+msgstr "Изменить"
+
+#: article/templates/article/detail.html:21
+#: users/templates/users/profile.html:23
+msgid "Delete"
+msgstr "Удалить"
+
+#: article/templates/article/update.html:8
+msgid "Update article"
+msgstr "Добавить статью"
+
+#: article/templates/article/update.html:13
+msgid "Update"
+msgstr "Изменить"
+
+#: article/views.py:20
+msgid "Article created successfully"
+msgstr "Статья успешно создана"
+
+#: article/views.py:33
+msgid "Article was successfully modified"
+msgstr "Статья успешно изменена"
+
+#: article/views.py:39
+msgid "Article successfully deleted"
+msgstr "Статья успешно удалена"
 
 #: templates/base.html:12 templates/base.html:25
 msgid "Dog Blog"
@@ -48,11 +130,7 @@ msgstr "Вход"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: users/models.py:7
-msgid "Photo"
-msgstr "Фотография"
-
-#: users/models.py:8
+#: users/models.py:10
 msgid "Date of Birth"
 msgstr "Дата рождения"
 
@@ -64,14 +142,6 @@ msgstr "Зарегистрироваться"
 msgid "Delete user"
 msgstr "Удаление пользователя"
 
-#: users/templates/users/delete.html:9
-msgid "Are you sure you want to delete"
-msgstr "Вы уверены, что хотите удалить"
-
-#: users/templates/users/delete.html:14
-msgid "Yes, delete"
-msgstr "Да, удалить"
-
 #: users/templates/users/login.html:16
 msgid "Log in"
 msgstr "Войти"
@@ -79,10 +149,6 @@ msgstr "Войти"
 #: users/templates/users/profile.html:21
 msgid "Change"
 msgstr "Изменить"
-
-#: users/templates/users/profile.html:23
-msgid "Delete"
-msgstr "Удалить"
 
 #: users/views.py:18
 msgid "User is successfully registered"
