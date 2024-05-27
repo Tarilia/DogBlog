@@ -21,7 +21,7 @@ class CreateUserView(SuccessMessageMixin, CreateView):
 class LoginUserView(LoginView):
     form_class = LoginUserForm
     template_name = 'users/login.html'
-    next_page = reverse_lazy("index")
+    next_page = reverse_lazy("index_articles")
 
     def form_valid(self, form):
         messages.success(self.request, _('You are logged in'))
@@ -44,12 +44,12 @@ class DeleteUserView(AuthRequiredMixin, SuccessMessageMixin,
                      DeleteView):
     template_name = "users/delete.html"
     model = get_user_model()
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("index_articles")
     success_message = _("User deleted successfully.")
 
 
 class LogoutUserView(SuccessMessageMixin, LogoutView):
-    next_page = reverse_lazy("index")
+    next_page = reverse_lazy("index_articles")
 
     def dispatch(self, request, *args, **kwargs):
         messages.info(request, _("You are logged out"))

@@ -23,3 +23,18 @@ class CreateArticlesView(SuccessMessageMixin, CreateView):
 class DetailArticlesView(DetailView):
     template_name = "article/detail.html"
     model = Article
+
+
+class UpdateArticlesView(SuccessMessageMixin, UpdateView):
+    template_name = "article/update.html"
+    model = Article
+    form_class = CreateArticlesForm
+    success_url = reverse_lazy("index_articles")
+    success_message = _("Article was successfully modified")
+
+
+class DeleteArticlesView(SuccessMessageMixin, DeleteView):
+    template_name = "article/delete.html"
+    model = Article
+    success_message = _("Article successfully deleted")
+    success_url = reverse_lazy("index_articles")

@@ -16,9 +16,9 @@
         <br>
          <div class="row p-1">
                     <div class="col">
-                        <a class="text-body-emphasis fw-bold" href="#">{% translate 'Edit' %}</a>
+                        <a class="text-body-emphasis fw-bold" href="{% url 'update_articles' slug=article.slug %}">{% translate 'Edit' %}</a>
                         <br>
-                        <a class="text-body-emphasis fw-bold" href="#">{% translate 'Delete' %}</a>
+                        <a class="text-body-emphasis fw-bold" href="{% url 'delete_articles' slug=article.slug %}">{% translate 'Delete' %}</a>
                     </div>
                 </div>
     </div>
