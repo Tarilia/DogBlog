@@ -15,6 +15,10 @@ class Article(models.Model):
                                        verbose_name=_("Change time"))
     is_published = models.BooleanField(default=True,
                                        verbose_name=_("is_published"))
+    cat = models.ForeignKey('Category', on_delete=models.PROTECT,
+                            related_name='articles', verbose_name=_("Category"))
+    tags = models.ManyToManyField('Tags', blank=True,
+                                  related_name='tags', verbose_name=_("Tags"))
 
     def __str__(self):
         return self.title
@@ -26,3 +30,29 @@ class Article(models.Model):
         indexes = [
             models.Index(fields=['-time_create'])
         ]
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=255, db_index=True,
+                            verbose_name=_("Category"))
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _("Category")
+
+    def __str__(self):
+        return self.name
+
+
+class Tags(models.Model):
+    tag = models.CharField(max_length=100, db_index=True,
+                           verbose_name=_("Tags"))
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    class Meta:
+        verbose_name = _("Tags")
+        verbose_name_plural = _("Tags")
+
+    def __str__(self):
+        return self.tag
