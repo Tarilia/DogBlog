@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 15:39+0300\n"
+"POT-Creation-Date: 2024-05-28 15:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,11 +44,21 @@ msgstr "Дата создания"
 msgid "Change time"
 msgstr "Дата изменения"
 
-#: article/models.py:16
+#: article/models.py:17
 msgid "is_published"
 msgstr "опубликовано"
 
-#: article/models.py:22 article/models.py:23
+#: article/models.py:19 article/models.py:37 article/models.py:41
+#: article/models.py:42
+msgid "Category"
+msgstr "Категории"
+
+#: article/models.py:21 article/models.py:50 article/models.py:54
+#: article/models.py:55
+msgid "Tags"
+msgstr "Теги"
+
+#: article/models.py:27 article/models.py:28
 msgid "Dog breeds"
 msgstr "Породы собак"
 
