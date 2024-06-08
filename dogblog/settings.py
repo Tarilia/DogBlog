@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'dogblog',
     'dogblog.users',
     'dogblog.article',
+    'dogblog.comments',
 ]
 
 MIDDLEWARE = [
