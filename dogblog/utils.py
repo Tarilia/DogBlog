@@ -18,6 +18,6 @@ class PermissionAuthorMixin(AccessMixin):
 
     def dispatch(self, request, *args, **kwargs):
         if self.get_object().author != self.request.user:
-            messages.info(request, 'Only the author can edit and delete')
+            messages.info(request, _('Only the author can edit and delete'))
             return redirect('index_articles')
         return super().dispatch(request, *args, **kwargs)

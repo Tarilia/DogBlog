@@ -10,7 +10,7 @@ class Comments(models.Model):
                                verbose_name=_("Author"))
     article = models.ForeignKey(Article, on_delete=models.CASCADE,
                                 verbose_name=_("Article"),
-                                related_name=_("comments"))
+                                related_name="comments")
     comment = models.TextField(verbose_name=_("Comment"))
     created_at = models.DateTimeField(auto_now_add=True)
 

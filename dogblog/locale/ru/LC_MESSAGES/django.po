@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 15:13+0300\n"
+"POT-Creation-Date: 2024-06-09 14:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,23 +74,49 @@ msgstr "Создать"
 msgid "Delete article"
 msgstr "Удалить статью"
 
-#: article/templates/article/delete.html:9 users/templates/users/delete.html:9
+#: article/templates/article/delete.html:9
+#: comments/templates/comments/delete.html:9
+#: users/templates/users/delete.html:9
 msgid "Are you sure you want to delete"
 msgstr "Вы уверены, что хотите удалить"
 
 #: article/templates/article/delete.html:14
+#: comments/templates/comments/delete.html:14
 #: users/templates/users/delete.html:14
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
 #: article/templates/article/detail.html:19
+#: article/templates/article/detail.html:47
+#: comments/templates/comments/update.html:13
 msgid "Edit"
 msgstr "Изменить"
 
-#: article/templates/article/detail.html:21
+#: article/templates/article/detail.html:20
+#: article/templates/article/detail.html:48
 #: users/templates/users/profile.html:23
 msgid "Delete"
 msgstr "Удалить"
+
+#: article/templates/article/detail.html:31
+msgid "Add comment"
+msgstr "Добавить комментарий"
+
+#: article/templates/article/detail.html:35
+msgid "Login up"
+msgstr "Войдите"
+
+#: article/templates/article/detail.html:35
+msgid " to leave a comment"
+msgstr "чтобы добавить комментарий"
+
+#: article/templates/article/detail.html:38
+msgid "User comments:"
+msgstr "Комментарии пользователей:"
+
+#: article/templates/article/detail.html:52
+msgid "No comments"
+msgstr "Нет комментариев"
 
 #: article/templates/article/update.html:8
 msgid "Update article"
@@ -111,6 +137,50 @@ msgstr "Статья успешно изменена"
 #: article/views.py:39
 msgid "Article successfully deleted"
 msgstr "Статья успешно удалена"
+
+#: comments/models.py:10
+msgid "Author"
+msgstr "Автор"
+
+#: comments/models.py:12
+msgid "Article"
+msgstr "Статья"
+
+#: comments/models.py:14 comments/models.py:19
+msgid "Comment"
+msgstr "Комментарий"
+
+#: comments/models.py:18
+msgid "Comments"
+msgstr "Комментарии"
+
+#: comments/templates/comments/create.html:8
+msgid "Add comments"
+msgstr "Добавить комментарий"
+
+#: comments/templates/comments/create.html:13
+msgid "Add"
+msgstr "Добавить"
+
+#: comments/templates/comments/delete.html:8
+msgid "Delete comment"
+msgstr "Удалить комментарий"
+
+#: comments/templates/comments/update.html:8
+msgid "Edit comment"
+msgstr "Изменить комментарий"
+
+#: comments/views.py:30
+msgid "Comment successfully created"
+msgstr "Комментарий успешно добавлен"
+
+#: comments/views.py:43
+msgid "Comment changed successfully"
+msgstr "Комментарий успешно изменен"
+
+#: comments/views.py:49
+msgid "Comment successfully deleted"
+msgstr "Комментарий успешно удален"
 
 #: templates/base.html:12 templates/base.html:25
 msgid "Dog Blog"
@@ -183,3 +253,7 @@ msgstr "Вы вышли из системы"
 #: utils.py:11
 msgid "You are not logged in! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, войдите."
+
+#: utils.py:21
+msgid "Only the author can edit and delete"
+msgstr "Редактировать и удалять может только автор"
