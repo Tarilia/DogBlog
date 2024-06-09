@@ -9,11 +9,6 @@ from dogblog.comments.models import Comments
 from dogblog.utils import AuthRequiredMixin, PermissionAuthorMixin
 
 
-class IndexCommentView(ListView):
-    template_name = "article/detail.html"
-    model = Comments
-
-
 class BaseCommentView:
     model = Comments
 
@@ -21,6 +16,10 @@ class BaseCommentView:
         article = models.Article.objects.get(pk=self.object.article.pk)
         return reverse("detail_articles",
                        kwargs={"slug": article.slug})
+
+
+class IndexCommentView(BaseCommentView, ListView):
+    template_name = "article/detail.html"
 
 
 class CreateCommentView(AuthRequiredMixin, BaseCommentView,
