@@ -14,12 +14,43 @@
         {% endif %}
         {{ article.content|linebreaks }}
         <br>
-         <div class="row p-1">
-                    <div class="col">
-                        <a class="btn mx-2 btn-secondary" href="{% url 'update_articles' slug=article.slug %}">{% translate 'Edit' %}</a>
-                        <a class="btn mx-2 btn-secondary" href="{% url 'delete_articles' slug=article.slug %}">{% translate 'Delete' %}</a>
-                    </div>
-                </div>
+        <div class="row p-1">
+            <div class="col">
+                <a class="btn mx-2 btn-secondary" href="{% url 'update_articles' slug=article.slug %}">{% translate 'Edit' %}</a>
+                <a class="btn mx-2 btn-secondary" href="{% url 'delete_articles' slug=article.slug %}">{% translate 'Delete' %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container wrapper flex-grow-1">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+      {% if user.is_authenticated %}
+        <form action="{% url 'create_comment' pk=article.pk %}" method="post" class="form">
+            {% csrf_token %}
+
+            {% translate 'Add comment' as button_name %}
+            {% bootstrap_button button_type="submit" button_class="btn btn-secondary" content=button_name %}
+        </form>
+        {% else %}
+        <p><a href="{% url 'login' %}">{% translate 'Login up' %}</a>{% translate ' to leave a comment' %}</p>
+      {% endif %}
+        <br>
+        <h4 class="text-body-emphasis fw-bold">{% translate 'User comments:' %}</h4>
+        {% if article.comments.all %}
+        {% for com in article.comments.all %}
+        <p class="btn mx-2 btn-secondary"> {% if com.author.photo %}
+            <img src="{{ com.author.photo.url }}" width="70px" height="50px">
+            {% endif %}
+            {{ com.author.username }} | {{ com.created_at }}
+            <br>
+        <p>{{ com.comment }}</p>
+        <a class="text-body-emphasis fw-bold" href="{% url 'update_comment' pk=com.pk %}">{% translate 'Edit' %}</a>
+        <a class="text-body-emphasis fw-bold" href="{% url 'delete_comment' pk=com.pk %}">{% translate 'Delete' %}</a></p>
+        <hr>
+        {% endfor %}
+        {% else %}
+        <p>{% translate 'No comments' %}</p>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}
