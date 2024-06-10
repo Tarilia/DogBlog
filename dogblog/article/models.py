@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -19,6 +20,10 @@ class Article(models.Model):
                             related_name='articles', verbose_name=_("Category"))
     tags = models.ManyToManyField('Tags', blank=True,
                                   related_name='tags', verbose_name=_("Tags"))
+    author = models.ForeignKey(get_user_model(), on_delete=models.PROTECT,
+                               related_name='tasks_author',
+                               verbose_name=_('Author'), null=True,
+                               default=None)
 
     def __str__(self):
         return self.title

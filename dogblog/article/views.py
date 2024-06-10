@@ -7,6 +7,7 @@ from django.utils.translation import gettext as _
 from dogblog.article import models
 from dogblog.article.forms import CreateArticlesForm
 from dogblog.article.models import Article
+from dogblog.utils import AuthRequiredMixin, PermissionAuthorMixin
 
 
 class BaseArticleView:
@@ -22,22 +23,32 @@ class IndexArticlesView(BaseArticleView, ListView):
     template_name = "article/index.html"
 
 
-class CreateArticlesView(BaseArticleView, SuccessMessageMixin, CreateView):
+class CreateArticlesView(BaseArticleView, AuthRequiredMixin,
+                         SuccessMessageMixin, CreateView):
     template_name = "article/create.html"
     form_class = CreateArticlesForm
     success_message = _("Article created successfully")
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class DetailArticlesView(BaseArticleView, DetailView):
     template_name = "article/detail.html"
 
 
-class UpdateArticlesView(BaseArticleView, SuccessMessageMixin, UpdateView):
+class UpdateArticlesView(BaseArticleView, AuthRequiredMixin,
+                         PermissionAuthorMixin,
+                         SuccessMessageMixin, UpdateView):
     template_name = "article/update.html"
     form_class = CreateArticlesForm
     success_message = _("Article was successfully modified")
 
 
-class DeleteArticlesView(BaseArticleView, SuccessMessageMixin, DeleteView):
+class DeleteArticlesView(AuthRequiredMixin, PermissionAuthorMixin,
+                         SuccessMessageMixin, DeleteView):
     template_name = "article/delete.html"
+    model = Article
+    success_url = reverse_lazy("index_articles")
     success_message = _("Article successfully deleted")
