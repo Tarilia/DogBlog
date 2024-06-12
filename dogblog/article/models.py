@@ -2,6 +2,9 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from mptt.fields import TreeForeignKey
+from mptt.models import MPTTModel
+
 
 class Article(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True,
@@ -16,8 +19,8 @@ class Article(models.Model):
                                        verbose_name=_("Change time"))
     is_published = models.BooleanField(default=True,
                                        verbose_name=_("is_published"))
-    cat = models.ForeignKey('Category', on_delete=models.PROTECT,
-                            related_name='articles', verbose_name=_("Category"))
+    cat = TreeForeignKey('Category', on_delete=models.PROTECT, blank=True,
+                         related_name='articles', verbose_name=_("Category"))
     tags = models.ManyToManyField('Tags', blank=True,
                                   related_name='tags', verbose_name=_("Tags"))
     author = models.ForeignKey(get_user_model(), on_delete=models.PROTECT,
@@ -37,17 +40,26 @@ class Article(models.Model):
         ]
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=255, db_index=True,
-                            verbose_name=_("Category"))
-    slug = models.SlugField(max_length=255, unique=True, db_index=True)
+class Category(MPTTModel):
+    title = models.CharField(max_length=255, verbose_name=_("Category"))
+    slug = models.SlugField(max_length=255, blank=True,
+                            verbose_name=_('URL category'))
+    description = models.TextField(max_length=300,
+                                   verbose_name=_('Category description'))
+    parent = TreeForeignKey('self', on_delete=models.CASCADE,
+                            null=True, blank=True, db_index=True,
+                            related_name=_('children'),
+                            verbose_name=_('Parent category'))
+
+    class MPTTMeta:
+        order_insertion_by = ('title',)
 
     class Meta:
         verbose_name = _("Category")
         verbose_name_plural = _("Category")
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Tags(models.Model):

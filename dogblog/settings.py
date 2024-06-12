@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'dogblog.users',
     'dogblog.article',
     'dogblog.comments',
+    'mptt',
 ]
 
 MIDDLEWARE = [
