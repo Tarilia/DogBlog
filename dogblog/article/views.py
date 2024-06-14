@@ -52,3 +52,14 @@ class DeleteArticlesView(AuthRequiredMixin, PermissionAuthorMixin,
     model = Article
     success_url = reverse_lazy("index_articles")
     success_message = _("Article successfully deleted")
+
+
+class FilterCategoryView(ListView):
+    template_name = "article/index.html"
+    model = Article
+
+    def get_queryset(self):
+        categ = Article.objects.all()
+        queryset = (
+            categ.filter(cat__slug=self.kwargs['slug']).select_related("cat"))
+        return queryset

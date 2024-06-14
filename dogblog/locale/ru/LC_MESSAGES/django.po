@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 14:56+0300\n"
+"POT-Creation-Date: 2024-06-14 14:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,47 +20,67 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: article/models.py:7
+#: article/models.py:12
 msgid "Slug"
 msgstr "Слаг"
 
-#: article/models.py:8
+#: article/models.py:13
 msgid "Heading"
 msgstr "Заголовок"
 
-#: article/models.py:9
+#: article/models.py:14
 msgid "Article text"
 msgstr "Текст статьи"
 
-#: article/models.py:11 users/models.py:8
+#: article/models.py:16 users/models.py:8
 msgid "Photo"
 msgstr "Фотография"
 
-#: article/models.py:13
+#: article/models.py:18
 msgid "Time of creation"
 msgstr "Дата создания"
 
-#: article/models.py:15
+#: article/models.py:20
 msgid "Change time"
 msgstr "Дата изменения"
 
-#: article/models.py:17
+#: article/models.py:22
 msgid "is_published"
 msgstr "опубликовано"
 
-#: article/models.py:19 article/models.py:37 article/models.py:41
-#: article/models.py:42
+#: article/models.py:24 article/models.py:45 article/models.py:59
+#: article/models.py:60 article/templates/article/index.html:43
 msgid "Category"
-msgstr "Категории"
+msgstr "Категория"
 
-#: article/models.py:21 article/models.py:50 article/models.py:54
-#: article/models.py:55
+#: article/models.py:26 article/models.py:71 article/models.py:75
+#: article/models.py:76 article/templates/article/index.html:45
 msgid "Tags"
 msgstr "Теги"
 
-#: article/models.py:27 article/models.py:28
+#: article/models.py:29 comments/models.py:10
+msgid "Author"
+msgstr "Автор"
+
+#: article/models.py:36 article/models.py:37
 msgid "Dog breeds"
 msgstr "Породы собак"
+
+#: article/models.py:47
+msgid "URL category"
+msgstr "Адрес категории"
+
+#: article/models.py:49
+msgid "Category description"
+msgstr "Описание категории"
+
+#: article/models.py:52
+msgid "children"
+msgstr "подкатегории"
+
+#: article/models.py:53
+msgid "Parent category"
+msgstr "Родительская категория"
 
 #: article/templates/article/create.html:8
 msgid "Create article"
@@ -118,6 +138,10 @@ msgstr "Комментарии пользователей:"
 msgid "No comments"
 msgstr "Нет комментариев"
 
+#: article/templates/article/index.html:11
+msgid "Categories"
+msgstr "Категории"
+
 #: article/templates/article/update.html:8
 msgid "Update article"
 msgstr "Добавить статью"
@@ -126,21 +150,17 @@ msgstr "Добавить статью"
 msgid "Update"
 msgstr "Изменить"
 
-#: article/views.py:20
+#: article/views.py:30
 msgid "Article created successfully"
 msgstr "Статья успешно создана"
 
-#: article/views.py:33
+#: article/views.py:46
 msgid "Article was successfully modified"
 msgstr "Статья успешно изменена"
 
-#: article/views.py:39
+#: article/views.py:54
 msgid "Article successfully deleted"
 msgstr "Статья успешно удалена"
-
-#: comments/models.py:10
-msgid "Author"
-msgstr "Автор"
 
 #: comments/models.py:12
 msgid "Article"
@@ -170,15 +190,15 @@ msgstr "Удалить комментарий"
 msgid "Edit comment"
 msgstr "Изменить комментарий"
 
-#: comments/views.py:30
+#: comments/views.py:29
 msgid "Comment successfully created"
 msgstr "Комментарий успешно добавлен"
 
-#: comments/views.py:43
+#: comments/views.py:42
 msgid "Comment changed successfully"
 msgstr "Комментарий успешно изменен"
 
-#: comments/views.py:49
+#: comments/views.py:48
 msgid "Comment successfully deleted"
 msgstr "Комментарий успешно удален"
 
