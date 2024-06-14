@@ -14,6 +14,14 @@
         {% endif %}
         {{ article.content|linebreaks }}
         <br>
+        <h6>{% translate 'Category' %}: <a class="text-body-emphasis fw-bold"
+                                               href="{% url 'category_articles' slug=article.cat.slug %}">{{article.cat.title }}</a></h6>
+            <h6>{% translate 'Tags' %}:</h6>
+            <ul>
+                {% for t in article.tags.all %}
+                <li>{{ t.tag }}</li>
+                {% endfor %}
+            </ul>
         <div class="row p-1">
             <div class="col">
                 <a class="btn mx-2 btn-secondary" href="{% url 'update_articles' slug=article.slug %}">{% translate 'Edit' %}</a>
@@ -22,6 +30,7 @@
         </div>
     </div>
 </div>
+
 <div class="container wrapper flex-grow-1">
     <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
       {% if user.is_authenticated %}
