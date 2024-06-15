@@ -10,6 +10,7 @@ urlpatterns = [
     path('', include('dogblog.article.urls')),
     path('users/', include('dogblog.users.urls')),
     path('comments/', include('dogblog.comments.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 

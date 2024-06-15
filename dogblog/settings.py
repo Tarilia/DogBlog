@@ -33,6 +33,7 @@ DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = ["127.0.0.1", "webserver"]
 
+INTERNAL_IPS = ["127.0.0.1"]
 
 # Application definition
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'dogblog.article',
     'dogblog.comments',
     'mptt',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'dogblog.urls'
