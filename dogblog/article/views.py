@@ -12,6 +12,7 @@ from dogblog.utils import AuthRequiredMixin, PermissionAuthorMixin
 
 class BaseArticleView:
     model = Article
+    paginate_by = 3
 
     def get_success_url(self):
         article = models.Article.objects.get(pk=self.object.pk)

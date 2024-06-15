@@ -4,6 +4,9 @@
 
 {% block content %}
 <div class="container wrapper flex-grow-1">
+    <div class="mt-4">
+        {% bootstrap_messages %}
+    </div>
     <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
         {% load mptt_tags %}
         <div class="card">
@@ -32,9 +35,6 @@
 </div>
 
 <div class="container wrapper flex-grow-1">
-    <div class="mt-4">
-        {% bootstrap_messages %}
-    </div>
     <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
         <div class="container wrapper flex-grow-1">
             {% for article in object_list %}
@@ -62,3 +62,34 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block navigation %}
+{% if page_obj.has_other_pages %}
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+        </li>
+        {% endif %}
+
+        {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+        <li class="page-link active">{{ p }}</li>
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">&gt;</a>
+        </li>
+        {% endif %}
+
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
