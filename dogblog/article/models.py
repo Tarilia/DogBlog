@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
+from taggit.managers import TaggableManager
 
 
 class Article(models.Model):
@@ -22,8 +23,7 @@ class Article(models.Model):
                                        verbose_name=_("is_published"))
     cat = TreeForeignKey('Category', on_delete=models.PROTECT, blank=True,
                          related_name='articles', verbose_name=_("Category"))
-    tags = models.ManyToManyField('Tags', blank=True,
-                                  related_name='tags', verbose_name=_("Tags"))
+    tags = TaggableManager()
     author = models.ForeignKey(get_user_model(), on_delete=models.PROTECT,
                                related_name='tasks_author',
                                verbose_name=_('Author'), null=True,
@@ -64,16 +64,3 @@ class Category(MPTTModel):
 
     def get_absolute_url(self):
         return reverse('category_articles', kwargs={'slug': self.slug})
-
-
-class Tags(models.Model):
-    tag = models.CharField(max_length=100, db_index=True,
-                           verbose_name=_("Tags"))
-    slug = models.SlugField(max_length=255, unique=True, db_index=True)
-
-    class Meta:
-        verbose_name = _("Tags")
-        verbose_name_plural = _("Tags")
-
-    def __str__(self):
-        return self.tag

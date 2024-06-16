@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'dogblog.comments',
     'mptt',
     'debug_toolbar',
+    'taggit',
 ]
 
 MIDDLEWARE = [

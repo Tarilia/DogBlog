@@ -1,6 +1,6 @@
 from django.contrib import admin
 from mptt.admin import DraggableMPTTAdmin
-from .models import Article, Category, Tags
+from .models import Article, Category
 
 admin.site.register(Article)
 
@@ -15,9 +15,3 @@ class CategoryAdmin(DraggableMPTTAdmin):
         ('Основная информация', {'fields': ('title', 'slug', 'parent')}),
         ('Описание', {'fields': ('description',)})
     )
-
-
-@admin.register(Tags)
-class TagPostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'tag')
-    list_display_links = ('id', 'tag')
