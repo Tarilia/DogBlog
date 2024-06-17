@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import (UserCreationForm, AuthenticationForm,
+                                       PasswordChangeForm)
 from django.utils.translation import gettext as _
 
 
@@ -33,3 +34,9 @@ class ProfilUserForm(forms.ModelForm):
 
     def clean_username(self):
         return self.cleaned_data.get("username")
+
+
+class PasswordUserChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(label=_("Old password"))
+    new_password1 = forms.CharField(label=_("New password1"))
+    new_password2 = forms.CharField(label=_("Password confirmation"))

@@ -21,6 +21,7 @@
     {% translate 'Change' as button_name %}
     {% bootstrap_button button_type="submit" button_class="btn btn-secondary" content=button_name %}
     <a class="btn mx-2 btn-secondary" href="{% url 'delete_users' pk=user.pk %}">{% translate 'Delete' %}</a>
+    <a class="btn mx-2 btn-secondary" href="{% url 'password_change' %}">{% translate 'Password change' %}</a>
   </form>
   </div>
 </div>

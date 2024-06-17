@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import (LoginView, LogoutView,
+                                       PasswordChangeView)
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.utils.translation import gettext as _
@@ -7,7 +8,7 @@ from django.contrib import messages
 from django.views.generic import CreateView, UpdateView, DeleteView
 
 from dogblog.users.forms import (CreateUserForm, LoginUserForm,
-                                 ProfilUserForm)
+                                 ProfilUserForm, PasswordUserChangeForm)
 from dogblog.utils import AuthRequiredMixin
 
 
@@ -38,6 +39,13 @@ class ProfileUserView(AuthRequiredMixin, SuccessMessageMixin,
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class PasswordUserChange(PasswordChangeView):
+    template_name = "users/password_change.html"
+    form_class = PasswordUserChangeForm
+    success_url = reverse_lazy("profile")
+    success_message = _("Password changed successfully")
 
 
 class DeleteUserView(AuthRequiredMixin, SuccessMessageMixin,
