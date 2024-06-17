@@ -12,16 +12,21 @@
         {% if article.photo %}
         <p><img src="{{ article.photo.url }}" width="230px" height="150px"></p>
         {% endif %}
-        {{ article.content|linebreaks }}
-        <br>
+
         <h6>{% translate 'Category' %}: <a class="text-body-emphasis fw-bold"
                                                href="{% url 'category_articles' slug=article.cat.slug %}">{{article.cat.title }}</a></h6>
-            <h6>{% translate 'Tags' %}:</h6>
-            <ul>
-                {% for t in article.tags.all %}
-                <li>{{ t.tag }}</li>
-                {% endfor %}
-            </ul>
+
+        {% if article.tags.all %}
+	    <div>
+		    {% for tag in article.tags.all %}
+            <a class="btn btn-outline-secondary" href="{% url 'tags_articles' tag.slug %}">{{ tag }}</a>
+            {% endfor %}
+	    </div>
+	 {% endif %}
+
+        {{ article.content|linebreaks }}
+        <br>
+
         <div class="row p-1">
             <div class="col">
                 <a class="btn mx-2 btn-secondary" href="{% url 'update_articles' slug=article.slug %}">{% translate 'Edit' %}</a>

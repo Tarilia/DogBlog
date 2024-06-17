@@ -2,7 +2,8 @@ from django.urls import path
 
 from dogblog.article.views import (IndexArticlesView, CreateArticlesView,
                                    DetailArticlesView, UpdateArticlesView,
-                                   DeleteArticlesView, FilterCategoryView)
+                                   DeleteArticlesView, FilterCategoryView,
+                                   FilterTagView)
 
 urlpatterns = [
     path('', IndexArticlesView.as_view(), name='index_articles'),
@@ -14,4 +15,5 @@ urlpatterns = [
          name="delete_articles"),
     path('category/<slug:slug>/', FilterCategoryView.as_view(),
          name="category_articles"),
+    path('tags/<str:tag>/', FilterTagView.as_view(), name="tags_articles"),
 ]

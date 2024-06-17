@@ -55,12 +55,21 @@ class DeleteArticlesView(AuthRequiredMixin, PermissionAuthorMixin,
     success_message = _("Article successfully deleted")
 
 
-class FilterCategoryView(ListView):
+class FilterCategoryView(BaseArticleView, ListView):
     template_name = "article/index.html"
-    model = Article
 
     def get_queryset(self):
         categ = Article.objects.all()
         queryset = (
             categ.filter(cat__slug=self.kwargs['slug']).select_related("cat"))
+        return queryset
+
+
+class FilterTagView(BaseArticleView, ListView):
+    template_name = "article/index.html"
+
+    def get_queryset(self):
+        tag = Article.objects.all()
+        queryset = (
+            tag.filter(tags__slug=self.kwargs['tag']).select_related("cat"))
         return queryset
