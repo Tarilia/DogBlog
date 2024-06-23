@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-14 14:44+0300\n"
+"POT-Creation-Date: 2024-06-23 15:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,43 +20,39 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: article/models.py:12
+#: article/models.py:13
 msgid "Slug"
 msgstr "Слаг"
 
-#: article/models.py:13
+#: article/models.py:14
 msgid "Heading"
 msgstr "Заголовок"
 
-#: article/models.py:14
+#: article/models.py:15
 msgid "Article text"
 msgstr "Текст статьи"
 
-#: article/models.py:16 users/models.py:8
+#: article/models.py:17 users/models.py:8
 msgid "Photo"
 msgstr "Фотография"
 
-#: article/models.py:18
+#: article/models.py:19
 msgid "Time of creation"
 msgstr "Дата создания"
 
-#: article/models.py:20
+#: article/models.py:21
 msgid "Change time"
 msgstr "Дата изменения"
 
-#: article/models.py:22
+#: article/models.py:23
 msgid "is_published"
 msgstr "опубликовано"
 
-#: article/models.py:24 article/models.py:45 article/models.py:59
-#: article/models.py:60 article/templates/article/index.html:43
+#: article/models.py:25 article/models.py:45 article/models.py:59
+#: article/models.py:60 article/templates/article/detail.html:16
+#: article/templates/article/index.html:50
 msgid "Category"
 msgstr "Категория"
-
-#: article/models.py:26 article/models.py:71 article/models.py:75
-#: article/models.py:76 article/templates/article/index.html:45
-msgid "Tags"
-msgstr "Теги"
 
 #: article/models.py:29 comments/models.py:10
 msgid "Author"
@@ -106,39 +102,39 @@ msgstr "Вы уверены, что хотите удалить"
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
-#: article/templates/article/detail.html:19
-#: article/templates/article/detail.html:47
+#: article/templates/article/detail.html:32
+#: article/templates/article/detail.html:61
 #: comments/templates/comments/update.html:13
 msgid "Edit"
 msgstr "Изменить"
 
-#: article/templates/article/detail.html:20
-#: article/templates/article/detail.html:48
+#: article/templates/article/detail.html:33
+#: article/templates/article/detail.html:62
 #: users/templates/users/profile.html:23
 msgid "Delete"
 msgstr "Удалить"
 
-#: article/templates/article/detail.html:31
+#: article/templates/article/detail.html:45
 msgid "Add comment"
 msgstr "Добавить комментарий"
 
-#: article/templates/article/detail.html:35
+#: article/templates/article/detail.html:49
 msgid "Login up"
 msgstr "Войдите"
 
-#: article/templates/article/detail.html:35
+#: article/templates/article/detail.html:49
 msgid " to leave a comment"
 msgstr "чтобы добавить комментарий"
 
-#: article/templates/article/detail.html:38
+#: article/templates/article/detail.html:52
 msgid "User comments:"
 msgstr "Комментарии пользователей:"
 
-#: article/templates/article/detail.html:52
+#: article/templates/article/detail.html:66
 msgid "No comments"
 msgstr "Нет комментариев"
 
-#: article/templates/article/index.html:11
+#: article/templates/article/index.html:16
 msgid "Categories"
 msgstr "Категории"
 
@@ -147,18 +143,19 @@ msgid "Update article"
 msgstr "Добавить статью"
 
 #: article/templates/article/update.html:13
+#: users/templates/users/password_change.html:13
 msgid "Update"
 msgstr "Изменить"
 
-#: article/views.py:30
+#: article/views.py:31
 msgid "Article created successfully"
 msgstr "Статья успешно создана"
 
-#: article/views.py:46
+#: article/views.py:47
 msgid "Article was successfully modified"
 msgstr "Статья успешно изменена"
 
-#: article/views.py:54
+#: article/views.py:55
 msgid "Article successfully deleted"
 msgstr "Статья успешно удалена"
 
@@ -214,10 +211,6 @@ msgstr "Добавить статью"
 msgid "Shop"
 msgstr "Магазин"
 
-#: templates/base.html:29 users/templates/users/profile.html:11
-msgid "Profile"
-msgstr "Профиль"
-
 #: templates/base.html:32
 msgid "Logout"
 msgstr "Выход"
@@ -229,6 +222,22 @@ msgstr "Вход"
 #: templates/base.html:38 users/templates/users/create.html:8
 msgid "Registration"
 msgstr "Регистрация"
+
+#: users/forms.py:17
+msgid "This email already exists!"
+msgstr "Этот адрес электронной почты уже существует!"
+
+#: users/forms.py:40
+msgid "Old password"
+msgstr "Старый пароль"
+
+#: users/forms.py:41
+msgid "New password1"
+msgstr "Новый пароль"
+
+#: users/forms.py:42
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
 
 #: users/models.py:10
 msgid "Date of Birth"
@@ -246,27 +255,114 @@ msgstr "Удаление пользователя"
 msgid "Log in"
 msgstr "Войти"
 
+#: users/templates/users/login.html:18
+msgid "Forgot your password?"
+msgstr "Забыли пароль?"
+
+#: users/templates/users/password_change.html:8
+#: users/templates/users/profile.html:24
+msgid "Password change"
+msgstr "Изменение пароля"
+
+#: users/templates/users/password_reset_complete.html:5
+msgid "Password changed"
+msgstr "Пароль изменен"
+
+#: users/templates/users/password_reset_complete.html:7
+msgid ""
+"Congratulations! You have successfully changed your account password. Use it "
+"for "
+msgstr "Поздравляем! Вы успешно изменили пароль своей учетной записи. Используйте это для "
+
+#: users/templates/users/password_reset_complete.html:8
+msgid "login in sistem"
+msgstr "входа в систему"
+
+#: users/templates/users/password_reset_confirm.html:8
+msgid "New password"
+msgstr "Новый пароль"
+
+#: users/templates/users/password_reset_confirm.html:13
+msgid "Save"
+msgstr "Сохранить"
+
+#: users/templates/users/password_reset_done.html:5
+msgid "Password reset"
+msgstr "Восстановление пароля"
+
+#: users/templates/users/password_reset_done.html:7
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr "Мы отправили вам по электронной почте инструкции по установке пароля, если существует учетная запись с указанным вами адресом электронной почты. Вы должны получить их в ближайшее время."
+
+#: users/templates/users/password_reset_done.html:9
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr "Если вы не получили электронное письмо, убедитесь, что вы ввели адрес, под которым зарегистрировались, и проверьте папку со спамом."
+
+#: users/templates/users/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: users/templates/users/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Пожалуйста, перейдите на следующую страницу и выберите новый пароль:"
+
+#: users/templates/users/password_reset_email.html:8
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Ваше имя пользователя, если вы забыли:"
+
+#: users/templates/users/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Спасибо за использование нашего сайта!"
+
+#: users/templates/users/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: users/templates/users/password_reset_form.html:8
+msgid "Password recovery"
+msgstr "Восстановление пароля"
+
+#: users/templates/users/password_reset_form.html:13
+msgid "Reset by email"
+msgstr "Сброс по электронной почте"
+
+#: users/templates/users/profile.html:11
+msgid "Profile"
+msgstr "Профиль"
+
 #: users/templates/users/profile.html:21
 msgid "Change"
 msgstr "Изменить"
 
-#: users/views.py:18
+#: users/views.py:19
 msgid "User is successfully registered"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: users/views.py:27
+#: users/views.py:28
 msgid "You are logged in"
 msgstr "Вы вошли в систему"
 
-#: users/views.py:37
+#: users/views.py:38
 msgid "User changed successfully"
 msgstr "Пользователь успешно изменен"
 
 #: users/views.py:48
+msgid "Password changed successfully"
+msgstr "Пароль успешно изменен"
+
+#: users/views.py:56
 msgid "User deleted successfully."
 msgstr "Пользователь успешно удален"
 
-#: users/views.py:55
+#: users/views.py:63
 msgid "You are logged out"
 msgstr "Вы вышли из системы"
 
