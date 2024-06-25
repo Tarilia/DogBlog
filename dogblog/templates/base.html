@@ -24,7 +24,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="{% url 'index_articles' %}">{% translate 'Dog Blog' %}</a>
           <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="{% url 'create_articles' %}">{% translate 'Add article' %}</a>
-          <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="#">{% translate 'Shop' %}</a>
+          <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="{% url 'feedback' %}">{% translate 'Feedback' %}</a>
           {% if user.is_authenticated %}
           <a class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none" href="{% url 'profile' %}">{{ user.username }}</a>
           <form action="{% url 'logout' %}" method="post" class="form">
