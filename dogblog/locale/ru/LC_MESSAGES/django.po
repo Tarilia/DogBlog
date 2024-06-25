@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-23 15:13+0300\n"
+"POT-Creation-Date: 2024-06-25 13:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,6 +199,46 @@ msgstr "Комментарий успешно изменен"
 msgid "Comment successfully deleted"
 msgstr "Комментарий успешно удален"
 
+#: feedback/models.py:7
+msgid "Letter subject"
+msgstr "Тема письма"
+
+#: feedback/models.py:8
+msgid "Email"
+msgstr "Электронная почта"
+
+#: feedback/models.py:9
+msgid "Contents of the letter"
+msgstr "Содержание письма"
+
+#: feedback/models.py:11
+msgid "Departure date"
+msgstr "Дата отправки"
+
+#: feedback/models.py:12
+msgid "IP sender"
+msgstr "IP отправителя"
+
+#: feedback/models.py:14
+msgid "User"
+msgstr "Пользователь"
+
+#: feedback/models.py:18 feedback/models.py:19 templates/base.html:27
+msgid "Feedback"
+msgstr "Обратная связь"
+
+#: feedback/templates/feedback/feedback.html:8
+msgid "Contact form"
+msgstr "Контактная форма"
+
+#: feedback/templates/feedback/feedback.html:13
+msgid "To send a letter"
+msgstr "Послать письмо"
+
+#: feedback/views.py:15
+msgid "Your letter has been sent successfully"
+msgstr "Ваше письмо успешно отправлено"
+
 #: templates/base.html:12 templates/base.html:25
 msgid "Dog Blog"
 msgstr "Собачий Блог"
@@ -206,10 +246,6 @@ msgstr "Собачий Блог"
 #: templates/base.html:26
 msgid "Add article"
 msgstr "Добавить статью"
-
-#: templates/base.html:27
-msgid "Shop"
-msgstr "Магазин"
 
 #: templates/base.html:32
 msgid "Logout"
@@ -272,7 +308,9 @@ msgstr "Пароль изменен"
 msgid ""
 "Congratulations! You have successfully changed your account password. Use it "
 "for "
-msgstr "Поздравляем! Вы успешно изменили пароль своей учетной записи. Используйте это для "
+msgstr ""
+"Поздравляем! Вы успешно изменили пароль своей учетной записи. Используйте "
+"это для "
 
 #: users/templates/users/password_reset_complete.html:8
 msgid "login in sistem"
@@ -294,13 +332,18 @@ msgstr "Восстановление пароля"
 msgid ""
 "We’ve emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
-msgstr "Мы отправили вам по электронной почте инструкции по установке пароля, если существует учетная запись с указанным вами адресом электронной почты. Вы должны получить их в ближайшее время."
+msgstr ""
+"Мы отправили вам по электронной почте инструкции по установке пароля, если "
+"существует учетная запись с указанным вами адресом электронной почты. Вы "
+"должны получить их в ближайшее время."
 
 #: users/templates/users/password_reset_done.html:9
 msgid ""
 "If you don’t receive an email, please make sure you’ve entered the address "
 "you registered with, and check your spam folder."
-msgstr "Если вы не получили электронное письмо, убедитесь, что вы ввели адрес, под которым зарегистрировались, и проверьте папку со спамом."
+msgstr ""
+"Если вы не получили электронное письмо, убедитесь, что вы ввели адрес, под "
+"которым зарегистрировались, и проверьте папку со спамом."
 
 #: users/templates/users/password_reset_email.html:2
 #, python-format
