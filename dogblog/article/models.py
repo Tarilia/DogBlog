@@ -41,6 +41,9 @@ class Article(models.Model):
             models.Index(fields=['-time_create'])
         ]
 
+    def get_view_count(self):
+        return self.views.count()
+
 
 class Category(MPTTModel):
     title = models.CharField(max_length=255, verbose_name=_("Category"))
@@ -65,3 +68,20 @@ class Category(MPTTModel):
 
     def get_absolute_url(self):
         return reverse('category_articles', kwargs={'slug': self.slug})
+
+
+class ViewCount(models.Model):
+    article = models.ForeignKey('Article', on_delete=models.CASCADE,
+                                related_name=_('views'))
+    ip_address = models.GenericIPAddressField(verbose_name='IP')
+    viewed_on = models.DateTimeField(auto_now_add=True,
+                                     verbose_name=_('Date viewed'))
+
+    class Meta:
+        ordering = ('-viewed_on',)
+        indexes = [models.Index(fields=['-viewed_on'])]
+        verbose_name = _('viewing')
+        verbose_name_plural = _('views')
+
+    def __str__(self):
+        return self.article.title

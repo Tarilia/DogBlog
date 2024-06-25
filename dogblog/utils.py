@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import gettext as _
 
+from dogblog.article.models import ViewCount
+
 
 class AuthRequiredMixin(LoginRequiredMixin):
     def dispatch(self, request, *args, **kwargs):
@@ -28,3 +30,11 @@ def get_client_ip(request):
     ip = x_forwarded_for.split(',')[0] \
         if x_forwarded_for else request.META.get('REMOTE_ADDR')
     return ip
+
+
+class ViewCountMixin:
+    def get_object(self):
+        post = super().get_object()
+        ip_address = get_client_ip(self.request)
+        ViewCount.objects.get_or_create(article=post, ip_address=ip_address)
+        return post

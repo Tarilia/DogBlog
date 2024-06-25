@@ -22,7 +22,9 @@
             <a class="btn btn-outline-secondary" href="{% url 'tags_articles' tag.slug %}">{{ tag }}</a>
             {% endfor %}
 	    </div>
-	 {% endif %}
+        <div>{% translate 'author' %}: {{ article.author.username }}</div>
+        <div>{% translate 'views' %}: {{ article.get_view_count }}<div>
+	{% endif %}
 
         {{ article.content|safe|linebreaks }}
         <br>
@@ -35,7 +37,7 @@
         </div>
     </div>
 </div>
-
+<hr><hr>
 <div class="container wrapper flex-grow-1">
     <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
       {% if user.is_authenticated %}

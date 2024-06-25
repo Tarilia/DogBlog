@@ -7,7 +7,8 @@ from django.utils.translation import gettext as _
 from dogblog.article import models
 from dogblog.article.forms import CreateArticlesForm
 from dogblog.article.models import Article
-from dogblog.utils import AuthRequiredMixin, PermissionAuthorMixin
+from dogblog.utils import (AuthRequiredMixin, PermissionAuthorMixin,
+                           ViewCountMixin)
 
 
 class BaseArticleView:
@@ -35,7 +36,8 @@ class CreateArticlesView(BaseArticleView, AuthRequiredMixin,
         return super().form_valid(form)
 
 
-class DetailArticlesView(BaseArticleView, DetailView):
+class DetailArticlesView(BaseArticleView, ViewCountMixin,
+                         DetailView):
     template_name = "article/detail.html"
 
 
