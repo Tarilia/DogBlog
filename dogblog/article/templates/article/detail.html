@@ -24,7 +24,7 @@
 	    </div>
 	 {% endif %}
 
-        {{ article.content|linebreaks }}
+        {{ article.content|safe|linebreaks }}
         <br>
 
         <div class="row p-1">

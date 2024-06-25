@@ -8,6 +8,7 @@
   <h1 class="my-4">{% translate 'Update article' %}</h1>
   <form method="post" enctype="multipart/form-data" class="form">
     {% csrf_token %}
+    {{ form.media }}
     {% bootstrap_form form %}
 
     {% translate 'Update' as button_name %}

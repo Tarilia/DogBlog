@@ -59,7 +59,7 @@
 	        {% endif %}
 
             {% autoescape off %}
-            {{ article.content|linebreaks|truncatewords:20 }}
+            {{ article.content|safe|linebreaks|truncatewords:20 }}
             {% endautoescape %}
             {% endif %}
                 </div>

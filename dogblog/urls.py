@@ -12,6 +12,7 @@ urlpatterns = [
     path('comments/', include('dogblog.comments.urls')),
     path('feedback/', include('dogblog.feedback.urls')),
     path('__debug__/', include('debug_toolbar.urls')),
+    path('ckeditor5/', include('django_ckeditor_5.urls')),
 ]
 
 

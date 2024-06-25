@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from django_ckeditor_5.fields import CKEditor5Field
 
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
@@ -12,7 +13,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True,
                             verbose_name=_("Slug"))
     title = models.CharField(max_length=255, verbose_name=_("Heading"))
-    content = models.TextField(blank=True, verbose_name=_("Article text"))
+    content = CKEditor5Field(blank=True, verbose_name=_("Article text"))
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", default=None,
                               blank=True, null=True, verbose_name=_("Photo"))
     time_create = models.DateTimeField(auto_now_add=True,
