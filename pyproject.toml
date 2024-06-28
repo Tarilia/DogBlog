@@ -21,6 +21,7 @@ django-debug-toolbar = "^4.4.2"
 django-taggit = "^5.0.1"
 django-ckeditor-5 = "^0.2.13"
 redis = "^5.0.7"
+celery = "^5.4.0"
 
 
 [tool.poetry.group.dev.dependencies]
