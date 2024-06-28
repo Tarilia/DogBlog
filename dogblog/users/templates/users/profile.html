@@ -23,6 +23,8 @@
     <a class="btn mx-2 btn-secondary" href="{% url 'delete_users' pk=user.pk %}">{% translate 'Delete' %}</a>
     <a class="btn mx-2 btn-secondary" href="{% url 'password_change' %}">{% translate 'Password change' %}</a>
   </form>
+    <hr>
+    <p>Заходил: {{ user.last_login }}</p>
   </div>
 </div>
 {% endblock %}

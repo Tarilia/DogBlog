@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'dogblog.middleware.ActiveUserMiddleware',
 ]
 
 ROOT_URLCONF = 'dogblog.urls'
@@ -252,4 +253,11 @@ CKEDITOR_5_CONFIGS = {
             }
         },
     },
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://localhost:6379',
+    }
 }
