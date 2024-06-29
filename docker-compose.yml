@@ -1,0 +1,48 @@
+services:
+  dogblog:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: dev
+    container_name: dogblog
+    restart: unless-stopped
+    volumes:
+      - .:/dogblog
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+    command: >
+      bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+
+
+  db:
+    image: postgres
+    container_name: db_dogblog
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  redis:
+    image: redis:5.0.5
+    container_name: redis
+
+  celery:
+    container_name: celery
+    user: nobody
+    build: .
+    env_file:
+      - .env
+    command: celery -A dogblog worker --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+        - ./celery/app:/app
+
+volumes:
+  postgres_data:
