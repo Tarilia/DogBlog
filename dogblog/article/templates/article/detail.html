@@ -23,7 +23,6 @@
             {% endfor %}
 	    </div>
         <div>{% translate 'author' %}: {{ article.author.username }}</div>
-        <div>{% translate 'views' %}: {{ article.get_view_count }}<div>
 	{% endif %}
 
         {{ article.content|safe|linebreaks }}
